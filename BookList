@@ -1,0 +1,45 @@
+
+package Assigment16;
+
+import java.util.Date;
+import java.util.Scanner;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+public class BookList {
+    private ArrayList<Book> bookList = new ArrayList<>();
+
+    public void addBook(Book book) {
+        book.addBook();
+        bookList.add(book);
+    }
+
+    public void updateBook(String id) {
+        for (Book book : bookList) {
+            if (book.getBookId().equals(id)) {
+                book.updateBook(id);
+                return;
+            }
+        }
+    }
+
+    public void deleteBookById(String id) {
+        bookList.removeIf(book -> book.getBookId().equals(id));
+    }
+
+    public Book findBookById(String id) {
+        for (Book book : bookList) {
+            if (book.getBookId().equals(id)) {
+                return book;
+            }
+        }
+        return null;
+    }
+
+    public void displayAllBooks() {
+        for (Book book : bookList) {
+            book.displayBook();
+        }
+    }
+}
+
